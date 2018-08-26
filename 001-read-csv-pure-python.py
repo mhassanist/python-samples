@@ -14,14 +14,25 @@ def parse_file(datafile):
     # A file object is its own iterator, for example iter(f) returns f (unless f is closed). When a file is used as an iterator, 
     #typically in a for loop (for example, for line in f: print line), the next() method is called repeatedly.
     
-    #open the file and read line by line and ads every read line to the list named data   
+    #open the file and read line by line and ads every read line to the list named data  
+    # This is memory efficient, fast, and leads to simple code
     with open(datafile, "r") as f:
         for line in f:
             #print line
             data.append(line)
     return data
 
-
+'''
+#using while loop and readline function
+    with open(datafile, "r") as f:
+        line = f.readline();
+        while line :
+            print line
+            line = f.readline()
+            data.append(line)
+        print line
+    return data
+'''
 def test():
     # a simple test of your implemetation
     datafile = os.path.join(DATA_DIR_PATH, DATA_FILE)
